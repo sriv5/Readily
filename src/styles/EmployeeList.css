@@ -1,0 +1,112 @@
+.employee-list {
+  padding: 0;
+}
+
+.employee-list h2 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.employees-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.employees-table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  position: sticky;
+  top: 0;
+}
+
+.employees-table th {
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+}
+
+.employees-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.employees-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.employees-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.employees-table tbody tr.escalated {
+  background-color: #fff3cd;
+}
+
+.empty-row {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+}
+
+.location-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.location-badge.remote {
+  background-color: #d4edff;
+  color: #0056b3;
+}
+
+.location-badge.onsite {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-badge.pending {
+  background-color: #e7e7e7;
+  color: #666;
+}
+
+.status-badge.escalated {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.escalate-btn {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #007bff;
+  color: white;
+}
+
+.escalate-btn:hover {
+  background-color: #0056b3;
+}
+
+.escalate-btn.escalated {
+  background-color: #dc3545;
+}
+
+.escalate-btn.escalated:hover {
+  background-color: #c82333;
+}
