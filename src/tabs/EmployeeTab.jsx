@@ -3,8 +3,6 @@ export default function EmployeeTab({ employees, announcements }) {
 
   return (
     <div>
-      <h1>Employee Tab</h1>
-
       <h2>Current Status</h2>
       <p>{currentEmployee.employee_name}</p>
       <p>{currentEmployee.absence_type}</p>

@@ -4,7 +4,7 @@ import EmployeeList from '../components/EmployeeList'
 import TeamStats from '../components/TeamStats'
 import RAGStatus from '../components/RAGStatus'
 import WorldMap from '../components/WorldMap'
-import '../styles/TeamLeadTab.css'
+import Card from '../components/Card'
 
 export default function TeamLeadTab() {
   const [selectedTeam, setSelectedTeam] = useState('TEAM01')
@@ -20,52 +20,50 @@ export default function TeamLeadTab() {
   }))
 
   return (
-    <div className="team-lead-tab">
-      <div className="teamlead-controls">
-        <div>
-          <h1 className="teamlead-title">Team Dashboard</h1>
-          <p className="teamlead-subtitle">
-            Monitor team absences, escalation status, and location coverage.
-          </p>
-        </div>
+    <div className="tab-page">
 
-        <div className="team-selector">
-          <label htmlFor="team-select">Select Team:</label>
-          <select
-            id="team-select"
-            value={selectedTeam}
-            onChange={(e) => setSelectedTeam(e.target.value)}
-          >
-            {teams.map(team => (
-              <option key={team.id} value={team.id}>
-                {team.name}
-              </option>
-            ))}
-          </select>
-        </div>
+      <div className="tab-filter">
+        <label htmlFor="team-select" className="tab-filter-label">
+          Select Team:
+        </label>
+        <select
+          id="team-select"
+          className="select"
+          value={selectedTeam}
+          onChange={(e) => setSelectedTeam(e.target.value)}
+        >
+          {teams.map(team => (
+            <option key={team.id} value={team.id}>
+              {team.name}
+            </option>
+          ))}
+        </select>
       </div>
 
-      <div className="dashboard-content">
-        <div className="dashboard-section team-stats-section">
+      {/* Content */}
+      <div className="grid grid-auto">
+
+        <Card title="Team Stats">
           <TeamStats
             teamId={selectedTeam}
             locationBreakdown={locationBreakdown}
             ragStatus={ragStatus}
             currentTeamRAG={currentTeamRAG}
           />
-        </div>
+        </Card>
 
-        <div className="dashboard-section rag-status-section">
+        <Card title="RAG Status" variant="soft">
           <RAGStatus ragStatus={ragStatus} />
-        </div>
+        </Card>
 
-        <div className="dashboard-section world-map-section">
+        <Card title="Global Overview">
           <WorldMap />
-        </div>
+        </Card>
 
-        <div className="dashboard-section employee-list-section">
+        <Card title="Employees with Active Absences" className="grid-full">
           <EmployeeList employees={employees} team={selectedTeam} />
-        </div>
+        </Card>
+
       </div>
     </div>
   )
