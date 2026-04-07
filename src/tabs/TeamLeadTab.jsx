@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { getEmployeesByTeam, getLocationBreakdown, getTeamRAGStatus } from '../data/mockData'
-import EmployeeList from './EmployeeList'
-import TeamStats from './TeamStats'
-import RAGStatus from './RAGStatus'
-import WorldMap from './WorldMap'
+import EmployeeList from '../components/EmployeeList'
+import TeamStats from '../components/TeamStats'
+import RAGStatus from '../components/RAGStatus'
+import WorldMap from '../components/WorldMap'
 import '../styles/TeamLeadTab.css'
 
 export default function TeamLeadTab() {
@@ -14,21 +14,32 @@ export default function TeamLeadTab() {
   const ragStatus = getTeamRAGStatus()
   const currentTeamRAG = ragStatus.find(team => team.team_id === selectedTeam)
 
-  const teams = [...new Set(ragStatus.map(team => ({ id: team.team_id, name: team.team_name })))]
+  const teams = ragStatus.map(team => ({
+    id: team.team_id,
+    name: team.team_name,
+  }))
 
   return (
     <div className="team-lead-tab">
-      <div className="dashboard-header">
-        <h1>Team Lead Absence Management Dashboard</h1>
+      <div className="teamlead-controls">
+        <div>
+          <h1 className="teamlead-title">Team Dashboard</h1>
+          <p className="teamlead-subtitle">
+            Monitor team absences, escalation status, and location coverage.
+          </p>
+        </div>
+
         <div className="team-selector">
-          <label htmlFor="team-select">Select Team: </label>
-          <select 
+          <label htmlFor="team-select">Select Team:</label>
+          <select
             id="team-select"
-            value={selectedTeam} 
+            value={selectedTeam}
             onChange={(e) => setSelectedTeam(e.target.value)}
           >
             {teams.map(team => (
-              <option key={team.id} value={team.id}>{team.name}</option>
+              <option key={team.id} value={team.id}>
+                {team.name}
+              </option>
             ))}
           </select>
         </div>
@@ -36,7 +47,7 @@ export default function TeamLeadTab() {
 
       <div className="dashboard-content">
         <div className="dashboard-section team-stats-section">
-          <TeamStats 
+          <TeamStats
             teamId={selectedTeam}
             locationBreakdown={locationBreakdown}
             ragStatus={ragStatus}

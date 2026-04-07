@@ -1,7 +1,5 @@
 .team-lead-tab {
-  padding: 15px;
-  background-color: #f5f5f5;
-  min-height: 100vh;
+  padding: 0;
 }
 
 .dashboard-header {
@@ -13,9 +11,6 @@
   padding: 15px 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
 .dashboard-header h1 {
@@ -91,15 +86,15 @@
   .dashboard-content {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .team-stats-section {
     grid-column: span 2;
   }
-  
+
   .rag-status-section {
     grid-column: span 2;
   }
-  
+
   .employee-list-section {
     grid-column: span 2;
   }
@@ -109,7 +104,7 @@
   .dashboard-content {
     grid-template-columns: 1fr;
   }
-  
+
   .team-stats-section,
   .rag-status-section,
   .employee-list-section {
