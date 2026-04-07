@@ -1,4 +1,5 @@
 import AnnouncementsPanel from "../components/AnnouncementsPanel"
+import AbsenceForm from "../components/AbsenceForm"
 import Card from "../components/Card"
 
 export default function EmployeeTab({ employees, announcements }) {
@@ -16,6 +17,10 @@ export default function EmployeeTab({ employees, announcements }) {
 
         <Card title="Announcements" variant="blue">
           <AnnouncementsPanel announcements={announcements} />
+        </Card>
+
+        <Card title="Submit Absence Form" variant="purple">
+          <AbsenceForm  />
         </Card>
       </div>
     </div>
