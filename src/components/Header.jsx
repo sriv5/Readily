@@ -5,12 +5,11 @@ export default function Header({ activeTab, setActiveTab }) {
     hr: 'HR Mode',
   }
 
+  const user = 'Jane'
+
   return (
     <header className="app-header">
-
-      {/* TOP ROW */}
       <div className="header-top">
-
         <div className="header-left">
           <img src="/src/assets/logo.png" alt="Readily logo" className="logo-img" />
         </div>
@@ -23,10 +22,8 @@ export default function Header({ activeTab, setActiveTab }) {
           <button className="header-link">Help</button>
           <div className="avatar">A</div>
         </div>
-
       </div>
 
-      {/* NAVIGATION */}
       <nav className="tab-nav">
         <button
           className={`tab-button ${activeTab === 'employee' ? 'active' : ''}`}
@@ -50,6 +47,9 @@ export default function Header({ activeTab, setActiveTab }) {
         </button>
       </nav>
 
+      <div className="header-bottom">
+        <p className="greeting">Welcome back, {user}!</p>
+      </div>
     </header>
   )
 }

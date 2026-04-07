@@ -3,8 +3,6 @@ export default function HRTab({ employees, teams, officeLocations }) {
 
   return (
     <div>
-      <h1>HR Tab</h1>
-
       <h2>Escalated Cases</h2>
       {escalatedEmployees.map(emp => (
         <div key={emp.employee_id}>
