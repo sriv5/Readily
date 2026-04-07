@@ -5,7 +5,7 @@
 export const mockEmployees = [
   {
     employee_id: 'EMP001',
-    employee_name: 'John Smith',
+    name: 'John Smith',
     absence_type: 'Sick Leave',
     start_date: '2026-03-20',
     end_date: '2026-03-25',
@@ -17,7 +17,7 @@ export const mockEmployees = [
   },
   {
     employee_id: 'EMP002',
-    employee_name: 'Sarah Johnson',
+    name: 'Sarah Johnson',
     absence_type: 'COVID-19',
     start_date: '2026-03-15',
     end_date: '2026-03-29',
@@ -29,7 +29,7 @@ export const mockEmployees = [
   },
   {
     employee_id: 'EMP003',
-    employee_name: 'Michael Chen',
+    name: 'Michael Chen',
     absence_type: 'Personal Leave',
     start_date: '2026-03-22',
     end_date: '2026-03-24',
@@ -41,7 +41,7 @@ export const mockEmployees = [
   },
   {
     employee_id: 'EMP004',
-    employee_name: 'Emma Wilson',
+    name: 'Emma Wilson',
     absence_type: 'Injury',
     start_date: '2026-03-18',
     end_date: '2026-04-01',
@@ -53,7 +53,7 @@ export const mockEmployees = [
   },
   {
     employee_id: 'EMP005',
-    employee_name: 'David Brown',
+    name: 'David Brown',
     absence_type: 'Maternity Leave',
     start_date: '2026-02-01',
     end_date: '2026-05-31',
@@ -65,7 +65,7 @@ export const mockEmployees = [
   },
   {
     employee_id: 'EMP006',
-    employee_name: 'Lisa Anderson',
+    name: 'Lisa Anderson',
     absence_type: 'Sick Leave',
     start_date: '2026-03-23',
     end_date: '2026-03-26',
@@ -77,7 +77,7 @@ export const mockEmployees = [
   },
   {
     employee_id: 'EMP007',
-    employee_name: 'Robert Taylor',
+    name: 'Robert Taylor',
     absence_type: 'COVID-19',
     start_date: '2026-03-21',
     end_date: '2026-03-28',
@@ -89,7 +89,7 @@ export const mockEmployees = [
   },
   {
     employee_id: 'EMP008',
-    employee_name: 'Jennifer Lee',
+    name: 'Jennifer Lee',
     absence_type: 'Bereavement',
     start_date: '2026-03-24',
     end_date: '2026-03-27',
@@ -101,7 +101,7 @@ export const mockEmployees = [
   },
   {
     employee_id: 'EMP009',
-    employee_name: 'James Martinez',
+    name: 'James Martinez',
     absence_type: 'Sick Leave',
     start_date: '2026-03-17',
     end_date: '2026-03-27',
@@ -113,7 +113,7 @@ export const mockEmployees = [
   },
   {
     employee_id: 'EMP010',
-    employee_name: 'Maria Garcia',
+    name: 'Maria Garcia',
     absence_type: 'Personal Leave',
     start_date: '2026-03-25',
     end_date: '2026-03-26',
@@ -160,6 +160,32 @@ export const announcements = [
     priority: 'low',
     date: '2026-03-18',
   },
+]
+
+export const teamAbsencePercentageData = [
+  { name: 'Absent', value: 23 },
+  { name: 'Available', value: 77 },
+]
+
+export const absenceLevelComparisonData = [
+  { name: 'Our Team', value: 23 },
+  { name: 'Team B', value: 15 },
+  { name: 'Team C', value: 30 },
+]
+
+export const liveStaffStatusData = [
+  { name: 'Available', value: 80 },
+  { name: 'Absent', value: 12 },
+  { name: 'On Leave', value: 8 },
+]
+
+export const organisationAbsenceSnapshotData = [
+  { name: 'Compliance', value: 47 },
+  { name: 'Operations', value: 51 },
+  { name: 'Wealth Mgmt', value: 40 },
+  { name: 'Technology', value: 60 },
+  { name: 'Risk', value: 32 },
+  { name: 'HR', value: 25 },
 ]
 
 // ==============================
