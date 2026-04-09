@@ -183,11 +183,10 @@ body {
 }
 
 .card-body {
-  overflow-x: auto;
-}
-
-.card--default {
-  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
 }
 
 .card--soft {

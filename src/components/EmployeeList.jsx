@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../styles/EmployeeList.css'
+import Button from './Button'
 
 export default function EmployeeList({ employees, team }) {
   const [escalated, setEscalated] = useState(
@@ -54,12 +55,13 @@ export default function EmployeeList({ employees, team }) {
                   </span>
                 </td>
                 <td>
-                  <button 
+                  <Button
+                    size="small"
                     className={`escalate-btn ${escalated[emp.employee_id] ? 'escalated' : ''}`}
                     onClick={() => handleEscalate(emp.employee_id)}
                   >
                     {escalated[emp.employee_id] ? 'Unescalate' : 'Escalate to HR'}
-                  </button>
+                  </Button>
                 </td>
               </tr>
             ))
