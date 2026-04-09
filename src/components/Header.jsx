@@ -40,7 +40,7 @@ export default function Header({ activeTab, setActiveTab, currentEmployee }) {
 
         <div className="header-right">
           <Button variant="link">Help</Button>
-          <div className="avatar">{currentEmployee.name.charAt(0)}</div>
+          <div className="avatar">{currentEmployee.name.split(' ').map(n => n.charAt(0)).join('')}</div>
         </div>
       </div>
 
