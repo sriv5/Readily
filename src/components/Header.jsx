@@ -1,4 +1,5 @@
 import logo from '../assets/logo.png'
+import Button from './Button'
 
 export default function Header({ activeTab, setActiveTab, currentEmployee }) {
   const titles = {
@@ -19,32 +20,35 @@ export default function Header({ activeTab, setActiveTab, currentEmployee }) {
         </div>
 
         <div className="header-right">
-          <button className="header-link">Help</button>
-          <div className="avatar">A</div>
+          <Button variant="link">Help</Button>
+          <div className="avatar">{currentEmployee.name.charAt(0)}</div>
         </div>
       </div>
 
       <nav className="tab-nav">
-        <button
-          className={`tab-button ${activeTab === 'employee' ? 'active' : ''}`}
+        <Button
+          variant="tab"
+          className={activeTab === 'employee' ? 'active' : ''}
           onClick={() => setActiveTab('employee')}
         >
           Employee
-        </button>
+        </Button>
 
-        <button
-          className={`tab-button ${activeTab === 'teamLead' ? 'active' : ''}`}
+        <Button
+          variant="tab"
+          className={activeTab === 'teamLead' ? 'active' : ''}
           onClick={() => setActiveTab('teamLead')}
         >
           Team Lead
-        </button>
+        </Button>
 
-        <button
-          className={`tab-button ${activeTab === 'hr' ? 'active' : ''}`}
+        <Button
+          variant="tab"
+          className={activeTab === 'hr' ? 'active' : ''}
           onClick={() => setActiveTab('hr')}
         >
           HR
-        </button>
+        </Button>
       </nav>
 
       <div className="header-bottom">
