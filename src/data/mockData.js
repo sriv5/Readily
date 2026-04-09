@@ -13,10 +13,10 @@ EMP010,Maria Garcia,Personal Leave,2026-03-25,2026-03-26,Onsite,TEAM01,Sales,fal
 
 // Office locations with coordinates
 export const officeLocations = {
-  'London': { lat: 51.5074, lng: -0.1278, country: 'UK' },
-  'New York': { lat: 40.7128, lng: -74.0060, country: 'USA' },
-  'Johannesburg': { lat: -26.2044, lng: 28.0456, country: 'South Africa' },
-  'Mumbai': { lat: 19.0760, lng: 72.8777, country: 'India' }
+  'London': { lat: 51.5074, lng: -0.1278, country: 'UK', offset: [-30, -4] },
+  'New York': { lat: 40.7128, lng: -74.0060, country: 'USA', offset: [-30, 5] },
+  'Johannesburg': { lat: -26.2044, lng: 28.0456, country: 'South Africa', offset: [2, 7] },
+  'Mumbai': { lat: 19.0760, lng: 72.8777, country: 'India', offset: [3, -3] }
 };
 
 // Parse CSV string to array of objects

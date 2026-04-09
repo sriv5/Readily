@@ -6,15 +6,19 @@ export default function WorldMap() {
   const [hoveredLocation, setHoveredLocation] = useState(null)
   const locations = getAbsencesByLocation()
 
-  // Mercator projection - converts lat/lng to x/y on a flat map
+  // Maps geo coordinates to SVG pixel coords using Web Mercator (more accurate than simple linear)
   const projectCoordinates = (lat, lng) => {
     const width = 800
     const height = 400
-    
-    // Simple Web Mercator projection
+
+    // longitude to x [0..width]
     const x = ((lng + 180) / 360) * width
-    const y = ((90 - lat) / 180) * height
-    
+
+    // latitude to y using Web Mercator
+    const latRad = (lat * Math.PI) / 180
+    const mercN = Math.log(Math.tan(Math.PI / 4 + latRad / 2))
+    const y = (height / 2) - (width * mercN) / (2 * Math.PI)
+
     return { x, y }
   }
 
@@ -25,17 +29,65 @@ export default function WorldMap() {
     return 'green'
   }
 
+  const continents = [
+    {
+      name: 'North America',
+      coords: [
+        [72, -170], [60, -170], [52, -125], [45, -100], [42, -90], [45, -70], [55, -45], [70, -50], [72, -140]
+      ]
+    },
+    {
+      name: 'South America',
+      coords: [
+        [15, -80], [0, -80], [-15, -75], [-30, -65], [-45, -60], [-50, -45], [-25, -40], [5, -45]
+      ]
+    },
+    {
+      name: 'Europe',
+      coords: [
+        [70, -10], [65, 0], [60, 10], [55, 20], [50, 30], [50, 40], [55, 30], [62, 20]
+      ]
+    },
+    {
+      name: 'Africa',
+      coords: [
+        [35, -20], [35, 20], [20, 35], [0, 40], [-20, 40], [-35, 20], [-35, 0], [-20, -15]
+      ]
+    },
+    {
+      name: 'Asia',
+      coords: [
+        [70, 40], [65, 80], [55, 100], [45, 110], [35, 120], [20, 130], [10, 110], [25, 90], [35, 70]
+      ]
+    },
+    {
+      name: 'Australia',
+      coords: [
+        [-10, 110], [-10, 155], [-40, 155], [-45, 130], [-30, 110]
+      ]
+    }
+  ]
+
+  const pathFromCoords = (coords) => {
+    const points = coords.map(([lat, lng]) => {
+      const p = projectCoordinates(lat, lng)
+      return `${p.x} ${p.y}`
+    }).join(' L ')
+
+    return `M ${points} Z`
+  }
+
+  const mapImage = '/world-map.svg' // place map image in public/world-map.svg
+
   return (
     <div className="world-map-container">
       <h2>Global Absence Distribution</h2>
       
       <div className="map-wrapper">
-        <svg className="world-map-svg" viewBox="0 0 800 400">
-          {/* Light gray background for water */}
-          <rect width="800" height="400" fill="#e8f4f8" />
-          
-          {/* Simplified world map grid */}
-          <g className="map-grid" opacity="0.1">
+        <img src={mapImage} alt="World map" className="map-bg" />
+        <svg className="world-map-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+          {/* Optional grid overlay for lat/lon reference */}
+          <g className="map-grid" opacity="0.08">
             <line x1="0" y1="200" x2="800" y2="200" stroke="#999" strokeWidth="1" />
             <line x1="200" y1="0" x2="200" y2="400" stroke="#999" strokeWidth="1" />
             <line x1="400" y1="0" x2="400" y2="400" stroke="#999" strokeWidth="1" />
@@ -44,20 +96,23 @@ export default function WorldMap() {
 
           {/* Plot dots for each office location */}
           {locations.map(location => {
+            const [xOffset = 0, yOffset = 0] = location.offset || []
             const { x, y } = projectCoordinates(
               location.coordinates.lat,
               location.coordinates.lng
             )
             const ragStatus = getRAGStatus(location.total)
             const isHovered = hoveredLocation?.name === location.name
+            const xPos = x + xOffset
+            const yPos = y + yOffset
 
             return (
               <g key={location.name}>
                 {/* Outer glow when hovered */}
                 {isHovered && (
                   <circle
-                    cx={x}
-                    cy={y}
+                    cx={xPos}
+                    cy={yPos}
                     r="25"
                     fill="none"
                     stroke={`var(--rag-${ragStatus})`}
@@ -68,8 +123,8 @@ export default function WorldMap() {
 
                 {/* Main dot */}
                 <circle
-                  cx={x}
-                  cy={y}
+                  cx={xPos}
+                  cy={yPos}
                   r={isHovered ? 14 : 10}
                   fill={`var(--rag-${ragStatus})`}
                   stroke="white"
@@ -81,8 +136,8 @@ export default function WorldMap() {
 
                 {/* Absence count badge */}
                 <text
-                  x={x}
-                  y={y}
+                  x={xPos}
+                  y={yPos}
                   textAnchor="middle"
                   dominantBaseline="central"
                   className="location-count"
