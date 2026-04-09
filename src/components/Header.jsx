@@ -1,17 +1,17 @@
-export default function Header({ activeTab, setActiveTab }) {
+import logo from '../assets/logo.png'
+
+export default function Header({ activeTab, setActiveTab, currentEmployee }) {
   const titles = {
     employee: 'Employee Mode',
     teamLead: 'Team Lead Mode',
     hr: 'HR Mode',
   }
 
-  const user = 'Jane'
-
   return (
     <header className="app-header">
       <div className="header-top">
         <div className="header-left">
-          <img src="/src/assets/logo.png" alt="Readily logo" className="logo-img" />
+          <img src={logo} alt="Readily logo" className="logo-img" />
         </div>
 
         <div className="header-center">
@@ -48,7 +48,7 @@ export default function Header({ activeTab, setActiveTab }) {
       </nav>
 
       <div className="header-bottom">
-        <p className="greeting">Welcome back, {user}!</p>
+        <p className="greeting">Welcome back, {currentEmployee.name}!</p>
       </div>
     </header>
   )
