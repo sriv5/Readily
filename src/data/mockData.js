@@ -5,7 +5,7 @@
 export const mockEmployees = [
   {
     employee_id: 'EMP001',
-    name: 'John Smith',
+    name: 'Kylie Jenner',
     absence_type: 'Sick Leave',
     start_date: '2026-03-20',
     end_date: '2026-03-25',
