@@ -3,110 +3,137 @@
 }
 
 .rag-overview {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .rag-overview h2 {
-  margin: 0 0 5px 0;
-  font-size: 14px;
-  color: #333;
+  margin: 0 0 6px 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #5f5b63;
+  letter-spacing: -0.03em;
 }
 
 .rag-description {
   margin: 0;
-  font-size: 11px;
-  color: #666;
-  font-style: italic;
+  font-size: 0.88rem;
+  color: #7b7480;
+  font-style: normal;
+  line-height: 1.45;
 }
 
 .rag-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 15px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
 }
 
 .rag-section {
-  border-radius: 6px;
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  background: white;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.66),
+    0 14px 30px rgba(181, 161, 194, 0.14);
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(12px);
 }
 
 .rag-section.red {
-  border-left: 4px solid #dc3545;
+  background: linear-gradient(180deg, rgba(255, 241, 243, 0.96) 0%, rgba(255, 250, 250, 0.92) 100%);
 }
 
 .rag-section.amber {
-  border-left: 4px solid #fd7e14;
+  background: linear-gradient(180deg, rgba(255, 248, 233, 0.96) 0%, rgba(255, 252, 246, 0.92) 100%);
 }
 
 .rag-section.green {
-  border-left: 4px solid #28a745;
+  background: linear-gradient(180deg, rgba(238, 250, 241, 0.96) 0%, rgba(249, 255, 251, 0.92) 100%);
 }
 
 .rag-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.32);
+  border-bottom: 1px solid rgba(182, 176, 187, 0.14);
 }
 
 .rag-header h3 {
   margin: 0;
-  font-size: 13px;
-  color: #333;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #47424a;
+  letter-spacing: -0.02em;
 }
 
 .team-count {
-  background-color: #e7e7e7;
-  color: #333;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 10px;
-  font-weight: 600;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .rag-section.red .team-count {
-  background-color: #f8d7da;
-  color: #721c24;
+  background: rgba(255, 220, 224, 0.95);
+  color: #84444c;
 }
 
 .rag-section.amber .team-count {
-  background-color: #fff3cd;
-  color: #856404;
+  background: rgba(255, 241, 205, 0.95);
+  color: #8a6a1d;
 }
 
 .rag-section.green .team-count {
-  background-color: #d4edda;
-  color: #155724;
+  background: rgba(216, 239, 220, 0.95);
+  color: #41684b;
 }
 
 .rag-teams {
-  padding: 8px;
-  max-height: 150px;
+  padding: 10px 14px 14px;
+  max-height: 180px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(170, 162, 175, 0.8) transparent;
+}
+
+.rag-teams::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rag-teams::-webkit-scrollbar-thumb {
+  background: rgba(170, 162, 175, 0.8);
+  border-radius: 999px;
+}
+
+.rag-teams::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .no-teams {
   margin: 0;
-  padding: 10px;
+  padding: 14px 10px;
   text-align: center;
-  color: #999;
+  color: #938c98;
   font-style: italic;
-  font-size: 12px;
+  font-size: 0.88rem;
 }
 
 .rag-team-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 0;
-  border-bottom: 1px solid #f0f0f0;
-  transition: background-color 0.2s ease;
-  font-size: 11px;
+  gap: 12px;
+  padding: 12px 4px;
+  border-bottom: 1px solid rgba(182, 176, 187, 0.14);
+  transition: background-color 0.18s ease;
+  font-size: 0.88rem;
 }
 
 .rag-team-card:last-child {
@@ -114,87 +141,110 @@
 }
 
 .rag-team-card:hover {
-  background-color: #f8f9fa;
+  background: rgba(255, 255, 255, 0.38);
 }
 
 .team-info h4 {
-  margin: 0 0 2px 0;
-  font-size: 12px;
-  color: #333;
+  margin: 0 0 4px 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #403b44;
+  letter-spacing: -0.02em;
 }
 
 .team-info p {
-  margin: 1px 0;
-  font-size: 10px;
-  color: #666;
+  margin: 2px 0;
+  font-size: 0.78rem;
+  color: #6f6874;
+  line-height: 1.35;
 }
 
 .absence-count {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .rag-indicator {
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-width: 24px;
 }
 
 .indicator {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .indicator.red {
-  background-color: #dc3545;
+  background: linear-gradient(180deg, #ff8c87 0%, #ff5e58 100%);
 }
 
 .indicator.amber {
-  background-color: #fd7e14;
+  background: linear-gradient(180deg, #ffd676 0%, #ffbd3f 100%);
 }
 
 .indicator.green {
-  background-color: #28a745;
+  background: linear-gradient(180deg, #7fd498 0%, #4bb56b 100%);
 }
 
 .rag-summary {
-  background: #f8f9fa;
-  padding: 10px;
-  border-radius: 6px;
-  margin-top: 10px;
+  background: linear-gradient(135deg, rgba(252, 244, 251, 0.92) 0%, rgba(243, 239, 252, 0.92) 52%, rgba(248, 226, 250, 0.92) 100%);
+  padding: 16px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  margin-top: 12px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.68),
+    0 10px 24px rgba(181, 161, 194, 0.12);
 }
 
 .rag-summary h3 {
-  margin: 0 0 8px 0;
-  font-size: 12px;
-  color: #333;
+  margin: 0 0 12px 0;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #5f5b63;
 }
 
 .summary-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 10px;
 }
 
 .summary-stat {
-  background: white;
-  padding: 8px;
-  border-radius: 4px;
-  border-left: 3px solid #007bff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.82);
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 8px 18px rgba(186, 173, 194, 0.1);
 }
 
 .summary-stat .label {
   display: block;
-  font-size: 10px;
-  color: #666;
-  font-weight: 600;
-  margin-bottom: 3px;
+  font-size: 0.74rem;
+  color: #7b7480;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
 }
 
 .summary-stat .value {
   display: block;
-  font-size: 18px;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #007bff;
+  color: #4d4950;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 900px) {
+  .rag-grid,
+  .summary-stats {
+    grid-template-columns: 1fr;
+  }
 }
